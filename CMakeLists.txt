@@ -33,6 +33,8 @@ option(FILAMENT_SUPPORTS_XLIB "Include XLIB support in Linux builds" ON)
 
 option(FILAMENT_SUPPORTS_EGL_ON_LINUX "Use EGL for OpenGL in Linux builds" OFF)
 
+option(FILAMENT_SUPPORTS_EGL_ON_MAC "Use EGL for OpenGL in Android builds On Mac" OFF)
+
 option(FILAMENT_SUPPORTS_WAYLAND "Include Wayland support in Linux builds" OFF)
 
 option(FILAMENT_SKIP_SDL2 "Skip dependencies of SDL2, and SDL2" OFF)
@@ -304,7 +306,7 @@ if (FILAMENT_USE_EXTERNAL_GLES3)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUSE_EXTERNAL_GLES3")
 endif()
 
-if (FILAMENT_SUPPORTS_EGL_ON_LINUX)
+if (FILAMENT_SUPPORTS_EGL_ON_LINUX OR FILAMENT_SUPPORTS_EGL_ON_MAC)
   set(EGL TRUE)
 endif()
 
